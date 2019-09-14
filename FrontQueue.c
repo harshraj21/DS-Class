@@ -79,7 +79,7 @@ void Prt(){
 	}
 	else{
 		printf("\nStored Data\n\n");
-		for(i=0;i<=q1.rear;i++){
+		for(i=q1.front;i<=q1.rear;i++){
 			printf("%d",q1.arr[i]);
 		}
 		printf("\n");
@@ -109,45 +109,3 @@ void main(){
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
