@@ -39,7 +39,7 @@ void Insert(){
 		if(q1.front == -1)
 			q1.front = 0;
 		printf("Value To Push: ");
-		scanf("%c",&element);
+		scanf("%d",&element);
 		//getc(element);		
 		q1.rear++;
 		q1.arr[q1.rear] = element;
@@ -50,7 +50,7 @@ void Insert(){
 }
 
 void Delete(){
-	char element;
+	int element;
 
 	if(isEmpty() == 1){
 		printf("\nQueue is empty!\n");
@@ -65,7 +65,7 @@ void Delete(){
 		else{
 			q1.front++;
 		}
-		printf("\nDeletion was sucessful!\nElement %c Was Deleted\n",element);
+		printf("\nDeletion was sucessful!\nElement %d Was Deleted\n",element);
 		return;
 	}
 }
@@ -78,8 +78,9 @@ void Prt(){
 		return;
 	}
 	else{
+		printf("\nStored Data\n\n");
 		for(i=0;i<=q1.rear;i++){
-			printf("%c",q1.arr[i]);
+			printf("%d",q1.arr[i]);
 		}
 		printf("\n");
 		return;
