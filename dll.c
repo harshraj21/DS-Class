@@ -75,7 +75,7 @@ void insert(){
             top++;
         }
         else{
-            temp = start->next;
+            temp = start->prev;
             ptr->val = val2;
             ptr->next = start;
             ptr->prev = temp;
