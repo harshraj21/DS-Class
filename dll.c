@@ -75,10 +75,7 @@ void insert(){
             top++;
         }
         else{
-            temp = start;
-            while(temp->next != start){//insert at last // traversing to the last
-                temp = temp->next;
-            }
+            temp = start->next;
             ptr->val = val2;
             ptr->next = start;
             ptr->prev = temp;
