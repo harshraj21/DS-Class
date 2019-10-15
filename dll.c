@@ -20,7 +20,7 @@ void main(){
     int ch;
     top = 0;
     for(;;){
-        printf("\nCircular Doubly Link List\n\n1: insert\n2: delete\n3: display\n4: exit\n\nEnter Your Choice: ");
+        printf("\nCircular Doubly Link List\n\n1: Insert at last\n2: Delete at last\n3: Display\n4: Exit\n\nEnter Your Choice: ");
         scanf("%d",&ch);
         switch(ch){
             case 1: insert();
@@ -49,7 +49,7 @@ int is_full(){
 }
 
 int is_empty(){
-    if(start == NULL && top <= 0){
+    if(start == NULL || top <= 0){
         return(1);
     }
     else{
@@ -72,26 +72,37 @@ void insert(){
             ptr->next = ptr;
             ptr->prev = ptr;
             start = ptr;
-            top++;
         }
         else{
-            temp = start;
-            while(temp->next != start){//insert at last // traversing to the last
-                temp = temp->next;
-            }
+            temp = start->prev;
             ptr->val = val2;
             ptr->next = start;
             ptr->prev = temp;
             temp->next = ptr;
             start->prev = ptr;
-            top++;
         }
+        top++;
         printf("\nALERT: Value/Node Inserted Sucessfully\n");
     }
 }
 
-void delete(){
-    
+void delete(){ // delete at end
+    struct node *tmp,*tmp2;
+    if(is_empty() == 1){
+        printf("\nWARNING: List is empty!\n");
+    }
+    else{
+        tmp = start->prev;
+        tmp2 = tmp->prev;
+        printf("\nALERT: Value >%d< Deleted\n",tmp->val);
+        start->prev = tmp->prev;
+        tmp2->next = start;
+        free(tmp);
+        top--;
+        if(top <= 0){
+            start = NULL;
+        }
+    }
 }
 
 void display(){
