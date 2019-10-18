@@ -110,7 +110,6 @@ void display(){
     struct node *tmp;
     tmp = start;
     printf("\nPrinting the Values Stored\n");
-    //printf("\n%d",tmp->val);
     for(i=0;i<top;i++){
         printf("\n%d",tmp->val);
         tmp = tmp->next;
