@@ -41,6 +41,7 @@ void pop(){
         start = start->next;
         printf("\nValue >%d< Popped From stack\n",tmp->val);
         free(tmp);
+        top--;
         if(top <= 0){
             start = NULL;
         }
