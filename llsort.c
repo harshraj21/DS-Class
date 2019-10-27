@@ -95,16 +95,16 @@ void display(){
     printf("\n#################################\n");
 }
 
-void uptodown(){
+void uptodown(){//wip
     int val1,val2;
     
 }
 
-void downtoup(){
+void downtoup(){//wip
 
 }
 
-void mysort(){
+void mysort(){//wip
     struct node *tmp;
     int i;
     tmp = start;
@@ -135,7 +135,7 @@ void main(){
     st.large = st.small = 0;
     start = NULL;
     for(;;){
-        printf("\nLink List Sorting\n\n1: Insert\n2: Delete\n3: Diplay\n4: Sort\n5: Exit\nEnter Your Choice: ");
+        printf("\nLink List Operations\n\n1: Insert\n2: Delete\n3: Diplay\n4: Sort\n5: Exit\nEnter Your Choice: ");
         scanf("%d",&ch);
         // switch(ch){
         //     case 1: insert();
