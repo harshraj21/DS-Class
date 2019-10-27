@@ -7,10 +7,12 @@ struct node{
     struct node* prev;
 }*start,*ptr;
 
-struct data{
-    int large;
-    int small;
-}st;
+struct node2{
+    int lr;
+    int sm;
+    struct node2* large;
+    struct node2* small;
+}st[0];
 
 int count;
 int pos;
@@ -95,9 +97,26 @@ void display(){
     printf("\n#################################\n");
 }
 
+void swap(struct node* ptr1, struct node2* ptr2){
+    struct node* tmp;
+    int x;
+    tmp = ptr2;
+    x = tmp->val;
+    tmp->val = ptr1->val;
+    ptr1->val = x;
+}
+
 void uptodown(){//wip
+    struct node* tmp;
+    int i;
+    tmp = start;
     int val1,val2;
-    
+    for(i=0;i<count;i++){
+        if(st->lr < tmp->val){
+            swap(tmp,st->large);
+        }
+        tmp = tmp->next;
+    }
 }
 
 void downtoup(){//wip
@@ -112,27 +131,30 @@ void mysort(){//wip
         printf("\nALERT: List is Empty!\n");
     }
     else{
-        st.large = st.small = start->val;
+        st->sm = st->lr = 0;
         for(i=0;i<count;i++){
         //while(pos!=count){
-            if(tmp->val > st.large){
-                st.large = tmp->val;
+            if(tmp->val > st->lr){
+                st->lr = tmp->val;
+                st->large = tmp;
             }
-            if(tmp->val < st.small){
-                st.small = tmp->val;
+            if(tmp->val < st->sm){
+                st->sm = tmp->val;
+                st->small = tmp;
             }
             tmp = tmp->next;
             //pos++;
         }
+        uptodown();
 
-        printf("\nLargest: %d\n\nSmallest: %d\n",st.large,st.small);
+        printf("\nLargest: %d\n\nSmallest: %d\n",st->lr,st->sm);
     }
 }
 
 void main(){
     int ch;
     count = pos = 0;
-    st.large = st.small = 0;
+    st->lr = st->sm = 0;
     start = NULL;
     for(;;){
         printf("\nLink List Operations\n\n1: Insert\n2: Delete\n3: Diplay\n4: Sort\n5: Exit\nEnter Your Choice: ");
