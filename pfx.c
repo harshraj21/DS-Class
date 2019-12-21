@@ -63,7 +63,7 @@ void iftpf(char* infix, char* postfix){
 
     item = infix[i];
 
-    while(item != '\0'){
+    while(item != '\0'){     
 
         if(item == '('){
             push(item);
